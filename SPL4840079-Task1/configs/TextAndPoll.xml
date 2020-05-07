@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="Create tweet"/>
+	<feature automatic="selected" name="Plattform"/>
+	<feature manual="selected" name="Android"/>
+	<feature automatic="unselected" name="TweetDeck"/>
+	<feature automatic="unselected" name="iOS"/>
+	<feature manual="selected" name="Text"/>
+	<feature automatic="selected" name="File"/>
+	<feature automatic="unselected" name="Image"/>
+	<feature automatic="unselected" name="png"/>
+	<feature automatic="unselected" name="jpg"/>
+	<feature manual="selected" name="Poll"/>
+	<feature name="Location"/>
+	<feature automatic="unselected" name="Video"/>
+	<feature automatic="unselected" name="avi"/>
+	<feature automatic="unselected" name="wmv"/>
+</configuration>
