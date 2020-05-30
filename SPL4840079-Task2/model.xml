@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+	<properties>
+		<graphics key="showhiddenfeatures" value="true"/>
+		<graphics key="legendautolayout" value="true"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
+	<struct>
+		<and mandatory="true" name="Create_Tweet">
+			<description>Creating a post on the social media plattform twitter.</description>
+			<graphics key="collapsed" value="false"/>
+			<alt mandatory="true" name="Plattform">
+				<description>The plattform the tweet was written in.</description>
+				<feature name="Android">
+					<description>OS from Google for many mobile devices. </description>
+				</feature>
+				<feature name="TweetDeck">
+					<description>Social-Media-Dashboard-Application</description>
+				</feature>
+				<feature name="iOS">
+					<description>OS from Apple for mobile Apple-Devices.</description>
+				</feature>
+			</alt>
+			<feature name="Text">
+				<description>The text of the tweet.</description>
+			</feature>
+			<or name="File">
+				<description>A file attached to the tweet.</description>
+				<alt name="Image">
+					<description>A file with an image file type.</description>
+					<feature name="png">
+						<description>A file format with lossless data compression.</description>
+					</feature>
+					<feature name="jpg">
+						<description>A smaller file format due to data compressison.</description>
+					</feature>
+				</alt>
+				<feature name="Poll">
+					<description>A twitter poll containing a maximum of four choices.</description>
+				</feature>
+				<feature name="Location">
+					<description>The current user location.</description>
+				</feature>
+				<alt name="Video">
+					<description>A file with a video file type.</description>
+					<feature name="avi">
+						<description>A windows video format.</description>
+					</feature>
+					<feature name="wmv">
+						<description>A windows file format and part of the Windows-Media-Plattform.</description>
+					</feature>
+				</alt>
+			</or>
+		</and>
+	</struct>
+	<constraints>
+		<rule>
+			<disj>
+				<var>Text</var>
+				<var>File</var>
+			</disj>
+		</rule>
+		<rule>
+			<imp>
+				<var>Poll</var>
+				<not>
+					<disj>
+						<var>Image</var>
+						<var>Video</var>
+					</disj>
+				</not>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>Video</var>
+				<not>
+					<disj>
+						<var>Image</var>
+						<var>Poll</var>
+					</disj>
+				</not>
+			</imp>
+		</rule>
+	</constraints>
+</featureModel>
